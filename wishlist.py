@@ -21,7 +21,7 @@ def index():
     return render_template('wish.html', wishlist=items)
 
 @app.route('/remove/<item>')
-def delete(item):
+def remove(item):
     list_delete(item)
     return redirect(url_for('index'))
 
