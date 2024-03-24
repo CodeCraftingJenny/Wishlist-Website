@@ -35,7 +35,7 @@
                 </tr>
                 {% for item in wishlist %}
                 <tr>
-                    <td>{{ item['name'] }}</td>
+                    <td><a href="{{ item['name'] }}" target="_blank">{{ item['name'] }}</a></td>
                     <td>{{ item['price'] }}</td>
                     <td><img src="{{ item['image'] }}" alt="Product Image" style="max-width: 100px; max-height: 100px;">
                     </td>
