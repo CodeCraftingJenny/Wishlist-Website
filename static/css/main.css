@@ -16,18 +16,23 @@ th {
 }
 
 h1 {
-	color: pink;
+	color: rgb(126, 166, 250);
 	width: 50%;
 	margin-left: 40%;
 	margin-right: 50%;
 }
 
 .btn {
-	background-color: pink;
+	background-color: rgb(126, 166, 250);
 	color: white;
 	text-align: center;
 	vertical-align: middle;
+    transition: background-color 0.3s; 
+    border-radius: 3px; 
+}
 
+.btn:hover {
+    background-color: rgb(113, 145, 212);
 }
 
 #top-div {
@@ -36,3 +41,13 @@ h1 {
 	margin: auto;
 	padding: 10px;
 }
+
+tr:hover {
+    background-color: #e7e6e7;
+}
+
+#wishlist-form {
+    text-align: center;
+    margin-top: 50px; 
+}
+
