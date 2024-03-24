@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-        <title>TODO</title>
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>TODO</title>
 </head>
+
 <body>
     <h1>My Wish List</h1>
 
     <div id="wishlist-form">
         <form action="/" method="POST">
-            <input type="text" id="item-input" name="wishlist_item">
+            <input type="url" id="item-input" name="wishlist_url" placeholder="Enter Product URL">
             <input type="submit" value="Add Item" name="add_button">
         </form>
     </div>
     <div id="wishlist-items">
         {% if wishlist|length < 1 %}
-            <h4>Add Your Items</h4>
+        <h4>Add Your Items</h4>
         {% else %}
-            <table>
-                <tr>
-                    <th>Item</th>
-                    <th>Action</th>
-                </tr>
-                {% for item in wishlist %}
-                <tr> 
-                    <td>{{ item }}</td>
-                    <td><a href="{{url_for('remove', item = item)}}" name="remove" class="btn" value="{{item}}">Remove</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </table>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+            {% for item in wishlist %}
+            <tr>
+                <td>{{ item['name'] }}</td>
+                <td>{{ item['price'] }}</td>
+                <td><img src="{{ item['image'] }}" alt="Product Image" style="max-width: 100px; max-height: 100px;"></td>
+                <td><a href="{{ url_for('delete', item=item['name']) }}" class="btn">Remove</a></td>
+            </tr>
+            {% endfor %}
+        </table>
         {% endif %}
     </div>
 </body>
+
 </html>

@@ -1,0 +1,38 @@
+table {
+	width: 50%;
+	margin: 50px auto;
+}
+
+table,
+td,
+th {
+	border: solid 1px black;
+	border: black;
+}
+
+td,
+th {
+	padding: 10px
+}
+
+h1 {
+	color: pink;
+	width: 50%;
+	margin-left: 40%;
+	margin-right: 50%;
+}
+
+.btn {
+	background-color: pink;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+
+}
+
+#top-div {
+	width: 50%;
+	text-align: center;
+	margin: auto;
+	padding: 10px;
+}
