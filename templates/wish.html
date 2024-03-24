@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <title>TODO</title>
+    <title>Wish Upon a URL</title>
 </head>
 
 <body>
     <h1>Wish Upon a URL</h1>
-    <p style="text-align: center;">Please copy a URL of the product you want from Amazon and paste it into the empty field below.</p>
+    <p style="text-align: center;">Please copy a URL of the product you want from Amazon and paste it into the empty
+        field below.</p>
 
-    <div id="wishlist-form"  class="center">
+    <div id="wishlist-form" class="center">
         <form action="/" method="POST">
             <input type="url" id="item-input" name="wishlist_url" placeholder="Enter Product URL">
             <input type="submit" value="Add Item" name="add_button">
@@ -45,7 +46,7 @@
             </table>
             {% endif %}
     </div>
-    
+
     <script>
         function sortItems() {
             var selectElement = document.getElementById("sort-select");
