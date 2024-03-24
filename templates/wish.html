@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Wishlist</title>
+    <title>My Wish List</title>
 </head>
 <body>
-    <hl>Wishlist</hl>
+    <h1>My Wish List</h1>
 
-    <div id = "top-div">
-        <form action = "/" method="POST">
-            <input type = "text" id = "item" name="wishlist_item">
-            <input type="submit" value = "Add" name = "add_Button">
+    <div id="wishlist-form">
+        <form action="/" method="POST">
+            <input type="text" id="item-input" name="wishlist_item">
+            <input type="submit" value="Add Item" name="add_button">
         </form>
     </div>
+
+    <div id="wishlist-items">
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Action</th>
+            </tr>
+            {% for item in wish_list %}
+            <tr> 
+                <td>{{ item }}</td>
+                <td><a href="#">Remove</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </body>
-    </html>
+</html>
