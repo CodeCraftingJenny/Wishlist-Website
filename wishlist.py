@@ -11,8 +11,8 @@ def list_delete(item):
     global items
     items.remove(item)
     
-@app.route("/", methods=['GET', 'POST'])
-def index():
+@app.route("/", methods = ['GET','POST'])
+def wishlist():
     if request.method == 'POST':
         item_added = request.form['wishlist_item']
         if item_added != '':
@@ -27,3 +27,6 @@ def remove(item):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+if __name__ == '__main__':
+    app.run(debug = True)
