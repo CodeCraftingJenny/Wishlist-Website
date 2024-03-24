@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <title>TODO</title>
+    <title>WishList</title>
 </head>
 
 <body>
@@ -21,7 +21,12 @@
     <div id="wishlist-items">
         {% if wishlist|length < 1 %} <h4>Add Your Items</h4>
             {% else %}
-            <table>
+            <label for="sort-select">Sort by:</label>
+            <select id="sort-select" onchange="sortItems()">
+                <option value="low_to_high">Price: Low to High</option>
+                <option value="high_to_low">Price: High to Low</option>
+            </select>
+            <table id="wishlist-table">
                 <tr>
                     <th>Item</th>
                     <th>Price</th>
@@ -40,6 +45,34 @@
             </table>
             {% endif %}
     </div>
+    
+    <script>
+        function sortItems() {
+            var selectElement = document.getElementById("sort-select");
+            var selectedValue = selectElement.value;
+            var wishlistTable = document.getElementById("wishlist-table");
+            var rows = Array.from(wishlistTable.getElementsByTagName("tr"));
+            var sortedRows = rows.slice(1); // Exclude header row
+
+            sortedRows.sort(function (a, b) {
+                var priceA = parseFloat(a.cells[1].innerText.replace("$", "").replace(",", ""));
+                var priceB = parseFloat(b.cells[1].innerText.replace("$", "").replace(",", ""));
+                if (selectedValue === "low_to_high") {
+                    return priceA - priceB;
+                } else {
+                    return priceB - priceA;
+                }
+            });
+
+            while (wishlistTable.rows.length > 1) {
+                wishlistTable.deleteRow(1); // Delete all rows except the header row
+            }
+
+            sortedRows.forEach(function (row) {
+                wishlistTable.appendChild(row);
+            });
+        }
+    </script>
 </body>
 
 </html>
