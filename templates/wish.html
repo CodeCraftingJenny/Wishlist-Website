@@ -25,7 +25,8 @@
                 {% for item in wishlist %}
                 <tr> 
                     <td>{{ item }}</td>
-                    <td><a href="#">Remove</a></td>
+                    <td><a href="{{url_for('remove', item = item)}}" name="remove" class="btn" value="{{item}}">Remove</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </table>
