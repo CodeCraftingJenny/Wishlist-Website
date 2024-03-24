@@ -27,12 +27,12 @@ h1 {
 	color: white;
 	text-align: center;
 	vertical-align: middle;
-    transition: background-color 0.3s; 
-    border-radius: 3px; 
+	transition: background-color 0.3s;
+	border-radius: 3px;
 }
 
 .btn:hover {
-    background-color: rgb(113, 145, 212);
+	background-color: rgb(113, 145, 212);
 }
 
 #top-div {
@@ -43,11 +43,14 @@ h1 {
 }
 
 tr:hover {
-    background-color: #e7e6e7;
+	background-color: #e7e6e7;
 }
 
 #wishlist-form {
-    text-align: center;
-    margin-top: 50px; 
+	text-align: center;
+	margin-top: 50px;
 }
 
+#share {
+	margin-top: 10px;
+}

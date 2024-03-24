@@ -18,33 +18,34 @@
             <input type="url" id="item-input" name="wishlist_url" placeholder="Enter Product URL">
             <input type="submit" value="Add Item" name="add_button">
         </form>
+        <input id="share" type="submit" value="share">
     </div>
     <div id="wishlist-items">
-        {% if wishlist|length < 1 %} <h4>Add Your Items</h4>
-            {% else %}
-            <label for="sort-select">Sort by:</label>
-            <select id="sort-select" onchange="sortItems()">
-                <option value="low_to_high">Price: Low to High</option>
-                <option value="high_to_low">Price: High to Low</option>
-            </select>
-            <table id="wishlist-table">
-                <tr>
-                    <th>Item</th>
-                    <th>Price</th>
-                    <th>Image</th>
-                    <th>Action</th>
-                </tr>
-                {% for item in wishlist %}
-                <tr>
-                    <td><a href="{{ item['name'] }}" target="_blank">{{ item['name'] }}</a></td>
-                    <td>{{ item['price'] }}</td>
-                    <td><img src="{{ item['image'] }}" alt="Product Image" style="max-width: 100px; max-height: 100px;">
-                    </td>
-                    <td><a href="{{ url_for('delete', item=item['name']) }}" class="btn">Remove</a></td>
-                </tr>
-                {% endfor %}
-            </table>
-            {% endif %}
+        <!-- {% if wishlist|length < 1 %} <h4>Add Your Items</h4>
+            {% else %} -->
+        <label for="sort-select">Sort by:</label>
+        <select id="sort-select" onchange="sortItems()">
+            <option value="low_to_high">Price: Low to High</option>
+            <option value="high_to_low">Price: High to Low</option>
+        </select>
+        <table id="wishlist-table">
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+            {% for item in wishlist %}
+            <tr>
+                <td><a href="{{ item['name'] }}" target="_blank">{{ item['name'] }}</a></td>
+                <td>{{ item['price'] }}</td>
+                <td><img src="{{ item['image'] }}" alt="Product Image" style="max-width: 100px; max-height: 100px;">
+                </td>
+                <td><a href="{{ url_for('delete', item=item['name']) }}" class="btn">Remove</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
     </div>
 
     <script>
