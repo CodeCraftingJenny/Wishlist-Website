@@ -1,9 +1,16 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 
 app = Flask(__name__)
+items = []
 
-@app.route("/")
+def list_append(item):
+    global items
+    items.append(item)
+@app.route("/", method = ['GET','POST'])
 def hello_world():
-    return render_template('index.html')
+    if request.method == 'POST':
+    item_added = request.form['wishlist_item']
+    
+    return render_template('wish.html')
 
 app.run(debug = True) 
