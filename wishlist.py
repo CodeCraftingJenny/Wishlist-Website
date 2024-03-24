@@ -11,7 +11,7 @@ def list_delete(item):
     global wishlist
     wishlist.remove(item)
     
-@app.route("/", method = ['GET','POST'])
+@app.route("/", methods = ['GET','POST'])
 def wishlist():
     if request.method == 'POST':
         item_added = request.form['wishlist_item']
@@ -20,9 +20,10 @@ def wishlist():
             
     return render_template('wish.html',wishlist = wishlist)
 
-@app.route('/delete/<item>')
+@app.route('/remove/<item>')
 def delete(item):
     list_delete(item)
     return redirect(url_for('wishlist'))
 
-# app.run(debug = True) 
+if __name__ == '__main__':
+    app.run(debug = True)
