@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 items = []
 
 def list_append(item):
@@ -11,7 +11,7 @@ def list_delete(item):
     global items
     items.remove(item)
     
-@app.route("/", methods = ['GET','POST'])
+@app.route("/", methods=['GET', 'POST'])
 def wishlist():
     if request.method == 'POST':
         item_added = request.form['wishlist_item']
@@ -23,10 +23,7 @@ def wishlist():
 @app.route('/remove/<item>')
 def remove(item):
     list_delete(item)
-    return redirect(url_for('index'))
+    return redirect(url_for('wishlist'))  # Corrected endpoint name
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-if __name__ == '__main__':
-    app.run(debug = True)
